@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import kr.or.ddit.db.SqlFactoryBuilder;
 import kr.or.ddit.userModel.UserVo;
-import kr.or.ddit.userModel.pageVo;
+import kr.or.ddit.userModel.PageVo;
 
 public class UserDao implements UserDaoInf {
 	
@@ -18,14 +18,25 @@ public class UserDao implements UserDaoInf {
 	public List<UserVo> getUserAll(){
 		SqlSessionFactory factory = SqlFactoryBuilder.getSqlSessionFantory();
 		SqlSession session = factory.openSession();
-		return session.selectList("user.user");
+		
+		List<UserVo> userList = session.selectList("user.user");
+		session.close(); // 닫아주기
+		
+		// cud는
+		//session.commit();
+		//session.rollback();
+		
+		return userList;
 	}
 	
 	public UserVo selectUser(String userId){
 		SqlSessionFactory factory = SqlFactoryBuilder.getSqlSessionFantory();
 		SqlSession session = factory.openSession();
 		
-		return session.selectOne("user.selectUser",userId);
+		UserVo selectUser = session.selectOne("user.selectUser",userId);
+		session.close();
+		
+		return selectUser;
 		
 	}
 	
@@ -33,15 +44,40 @@ public class UserDao implements UserDaoInf {
 		SqlSessionFactory factory = SqlFactoryBuilder.getSqlSessionFantory();
 		SqlSession session = factory.openSession();
 		
-		return session.selectOne("user.selectUserByVo",userVo);
+		UserVo selectUser = session.selectOne("user.selectUserByVo",userVo);
+		session.close();
+		
+		return selectUser;
 		
 	}
 	
-	public List<UserVo> selectUserPageList(pageVo page){
+	public List<UserVo> selectUserPageList(PageVo page){
 		SqlSessionFactory factory = SqlFactoryBuilder.getSqlSessionFantory();
 		SqlSession session = factory.openSession();
 		
-		return session.selectList("user.selectUserPageList", page);
+		List<UserVo> selectUserPageList = session.selectList("user.selectUserPageList", page);
+		session.close();
+		
+		return selectUserPageList;
+	}
+	
+	/**
+	 * 
+	* Method : getUserCnt
+	* 작성자 : chan
+	* 변경이력 :
+	* @return
+	* Method 설명 : 사용자 전체 건수 조회
+	 */
+	
+	public int getUserCnt(){
+		SqlSessionFactory factory = SqlFactoryBuilder.getSqlSessionFantory();
+		SqlSession session = factory.openSession();
+		
+		int getUserCnt = session.selectOne("user.getUserCnt");
+		session.close();
+		
+		return getUserCnt;
 	}
 	
 	

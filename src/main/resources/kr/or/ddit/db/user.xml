@@ -20,10 +20,18 @@
   	SELECT
     *
 	FROM
-	(SELECT rownum rnum, jspuser.*
-	FROM jspuser
-	 order by userId)
-	 where rnum between #{page}*#{pageSize}-(#{pageSize}-1) and #{page}*#{pageSize}
+		(SELECT rownum rnum, a.*
+    	FROM 
+    	(select jspuser.*
+    	from jspuser
+    	order by userId)a)
+ 	where rnum between #{page}*#{pageSize}-(#{pageSize}-1) and #{page}*#{pageSize}
+  </select>
+  
+  <select id="getUserCnt" resultType="int">
+  	select count(*) from jspuser
   </select>
   
 </mapper>
+
+

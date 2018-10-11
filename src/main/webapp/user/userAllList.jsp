@@ -1,3 +1,4 @@
+<%@page import="kr.or.ddit.userModel.PageVo"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.userModel.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -39,11 +40,9 @@
 
 		<div class="text-center">
 			<ul class="pagination">
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
+				
+						<li><a href="userAllList?page=1">1</a></li>
+				
 			</ul>
 		</div>
 	</div>

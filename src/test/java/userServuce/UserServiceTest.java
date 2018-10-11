@@ -2,7 +2,9 @@ package userServuce;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Map;
 
+import kr.or.ddit.userModel.PageVo;
 import kr.or.ddit.userModel.UserVo;
 
 import org.junit.After;
@@ -69,7 +71,7 @@ public class UserServiceTest {
 			System.out.println(uv.toString());
 		}
 		// 테스트이기 때문에 디비값을 갯수를 알고있음.
-		assertEquals(5, userList.size());
+		assertEquals(105, userList.size());
 		
 	}
 	
@@ -109,6 +111,28 @@ public class UserServiceTest {
 	}
 	
 	
+	@Test
+	
+	public void selectUserPageList(){
+		
+		
+		/***Given***/
+		PageVo pageVo = new PageVo();
+		pageVo.setPage(1);
+		pageVo.setPageSize(10);
+		
+		/***When***/
+		Map<String, Object> resultMap = userS.selectUserPageList(pageVo);
+		List<UserVo> userList = (List<UserVo>)resultMap.get("userList");
+		
+		int pageCnt = (Integer)resultMap.get("pageCnt");
+		
+		/***Then***/
+		assertEquals(10, userList.size());
+		assertEquals(11, pageCnt);
+	}
+	
+	
 	//gwt
 	
 	/***Given***/
@@ -118,6 +142,7 @@ public class UserServiceTest {
 
 	/***Then***/
 
-		
+	
+
 }
 	

@@ -10,11 +10,10 @@ public class UserVo {
 	private String addr2;
 	private String zipcd;
 	private Date birth;
-	private String eamil;
+	private String email;
 	private String tel;
 	private String profile;
-	
-	
+	private int rnum;
 	
 	
 	public UserVo() {
@@ -23,8 +22,8 @@ public class UserVo {
 	}
 
 	public UserVo(String userId, String name, String pass, String addr1,
-			String addr2, String zipcd, Date birth, String eamil, String tel,
-			String profile) {
+			String addr2, String zipcd, Date birth, String email, String tel,
+			String profile, int runm) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -33,16 +32,27 @@ public class UserVo {
 		this.addr2 = addr2;
 		this.zipcd = zipcd;
 		this.birth = birth;
-		this.eamil = eamil;
+		this.email = email;
 		this.tel = tel;
 		this.profile = profile;
+		this.rnum = runm;
+
+	}
+	
+	
+	public int getRnum() {
+		return rnum;
+	}
+
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
 
 	@Override
 	public String toString() {
 		return "UserVo [userId=" + userId + ", name=" + name + ", pass=" + pass
 				+ ", addr1=" + addr1 + ", addr2=" + addr2 + ", zipcd=" + zipcd
-				+ ", birth=" + birth + ", eamil=" + eamil + ", tel=" + tel
+				+ ", birth=" + birth + ", email=" + email + ", tel=" + tel
 				+ ", profile=" + profile + "]";
 	}
 	
@@ -88,11 +98,11 @@ public class UserVo {
 	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
-	public String getEamil() {
-		return eamil;
+	public String getEmail() {
+		return email;
 	}
-	public void setEamil(String eamil) {
-		this.eamil = eamil;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getTel() {
 		return tel;

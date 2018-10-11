@@ -1,30 +1,24 @@
 package kr.or.ddit.userModel;
 
-public class pageVo {
+public class PageVo {
 	private int page;
 	private int pageSize;
-	private int rnum;
 	
-	public pageVo() {
+	
+	public PageVo() {
 		super();
 
 	}
-
 	
-	public int getRnum() {
-		return rnum;
-	}
-
-	public void setRnum(int rnum) {
-		this.rnum = rnum;
-	}
-
-	public pageVo(int page, int pageSize) {
+	public PageVo(int page, int pageSize) {
 		super();
 		this.page = page;
 		this.pageSize = pageSize;
 	}
 	
+	
+	
+
 	public int getPage() {
 		return page;
 	}
