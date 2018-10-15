@@ -9,7 +9,7 @@
 <link href="http://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="http://getbootstrap.com/docs/4.1/examples/sign-in/signin.css" rel="stylesheet">
-<script src="/js/jquery-3.3.1.min.js"></script>
+
 <title>Insert title here</title>
 <style type="text/css">
 	ul { list-style: none;}
