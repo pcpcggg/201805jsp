@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +33,38 @@ public class LoginServlet extends HttpServlet{
 		String userId = req.getParameter("userId");
 		String password = req.getParameter("password");
 		
+		
+		// remember-me 파라미터 받아서 sysout으로 출력
+		// rememberMe == null : 아이디 기억 사용 안함
+		String rememberMe = req.getParameter("remember-me");
+		System.out.println("rememberMe :" + rememberMe);
+		
+		if(rememberMe == null){
+			Cookie[] cookies = req.getCookies();
+			for(Cookie cookie : cookies){
+				System.out.println(cookie.getName());
+				
+				if(cookie.getName().equals("remember")||
+				  cookie.getName().equals("userId")){
+					// -1 : 브라우저 재시작시 쿠키 삭제 반영
+					// 0 : 바로삭제
+					cookie.setMaxAge(0);
+					resp.addCookie(cookie);
+				}
+			}
+		}
+		// rerememberMe != null : 아이디 기억 사용
+		else{
+			// response 객체에 쿠기를 저장
+			Cookie cookie = new Cookie("remember", "Y");
+			Cookie userIdCookie = new Cookie("userId", userId);
+			
+			resp.addCookie(cookie);
+			resp.addCookie(userIdCookie);
+		}
+		
+		
+	
 		
 		resp.setContentType("text/html; charset=utf-8");
 		PrintWriter pw =resp.getWriter();

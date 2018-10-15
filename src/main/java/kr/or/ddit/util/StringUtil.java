@@ -14,4 +14,19 @@ public class StringUtil {
 		return fileName;
 		
 	}
+
+	public static String getCookie(String ContentDisposition, String string) {
+
+		String cookieValue = "";
+		
+		String[] cookies = ContentDisposition.split("; ");
+		for(int i = 0; i < cookies.length; i++){
+			String str = cookies[i];
+			if(str.startsWith(string +"=")){
+				cookieValue = str.substring((string + "=").length());
+			}
+		}
+		return cookieValue;
+	}
+	
 }
