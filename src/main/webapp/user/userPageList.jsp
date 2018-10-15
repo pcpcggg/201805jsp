@@ -3,9 +3,16 @@
 <%@page import="kr.or.ddit.userModel.UserVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.text.DateFormat"%>
+<%@ page import="java.text.DecimalFormat"%>
 
 <%@include file="/common/header.jsp"%>
 <%@include file="/common/left.jsp"%>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+
 
 <script>
 	$(document).ready(function(){
@@ -44,14 +51,19 @@
 				</tr>
 				<%
 					List<UserVo> userList = (List<UserVo>)request.getAttribute("pageList");
-
+					
+					
+				
 					for(UserVo uv : userList ){
+						DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+						Date nowDate = new Date();
+						String tempDate = sdFormat.format(uv.getBirth());	
 				%>
 					<tr class="userClick">
 						<td><%= uv.getRnum() %></td>
 						<td><%= uv.getUserId() %></td>
 						<td><%= uv.getName() %></td>
-						<td><%= uv.getBirth() %></td>
+						<td><%= tempDate %></td>
 					</tr>
 				
 				<%} %>
@@ -59,7 +71,7 @@
 			</table>
 		</div>
 
-		<a class="btn btn-default pull-right">사용자 등록</a>
+		<a class="btn btn-default pull-right" href="/userForm">사용자 등록</a>
 
 		<div class="text-center">
 			<ul class="pagination">

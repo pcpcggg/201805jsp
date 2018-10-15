@@ -61,6 +61,55 @@ public class UserService implements UserServiceInf {
 		
 		return resultMap;
 	}
+
+
+
+	public int getUserCnt() {
+		return ud.getUserCnt();
+	}
+	
+	/**
+	 * 
+	* Method : insertUser
+	* 작성자 : chan
+	* 변경이력 :
+	* @param userVo
+	* @return
+	* Method 설명 : 회원 추가
+	 */
+
+	public int insertUser(UserVo userVo) {
+		return ud.insertUser(userVo);
+	}
+	
+	/**
+	 * 
+	* Method : deleteUser
+	* 작성자 : chan
+	* 변경이력 :
+	* @param userId
+	* @return
+	* Method 설명 : 회원 삭제
+	 */
+	
+	public int deleteUser(String userId) {
+		return ud.deleteUser(userId);
+	}
+
+	
+	/**
+	 * 
+	* Method : updateUser
+	* 작성자 : chan
+	* 변경이력 :
+	* @param userVo
+	* @return
+	* Method 설명 : 회원 업데이트
+	 */
+	
+	public int updateUser(UserVo userVo) {
+		return ud.updateUser(userVo);
+	}
 	
 	
 	

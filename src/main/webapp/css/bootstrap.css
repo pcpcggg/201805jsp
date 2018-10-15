@@ -6564,3 +6564,21 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+/********************내가 수정한 css**********************/
+
+/* 유저 게시판 업데이트 부분 */
+.col-sm-10_left { float: left; width: 50%; text-align: center; height: 250px; }
+.col-sm-10_right { float: left; width: 50%; text-align: center; height: 250px; }
+
+.col-sm-10_left h2, .col-sm-10_right h2 { font-size: 18px; font-weight: bold; text-align: center;}
+
+.col-sm-10_left img { height: 150px; width: auto;}
+.col-sm-10_right img { height: 150px; width: auto;}
+
+#input_img1 { float: left;}
+#btn_delAttach { float: left; margin-left: 20px;}
+
+
+

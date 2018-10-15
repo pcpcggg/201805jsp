@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="kr.or.ddit.userModel.UserVo"%>
-<% UserVo userVo = (UserVo)session.getAttribute("userVo"); %>
+
+<% 
+	UserVo userVo = (UserVo)session.getAttribute("userVo"); 
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,17 +15,28 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
+
+
 <link rel="icon" href="../../favicon.ico">
 
 <title>Jsp</title>
 
+<!-- 다음 주소 api -->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
 <script src="/js/jquery-3.3.1.min.js"></script>
+
 <link href="/css/bootstrap.css" rel="stylesheet">
 <!-- Bootstrap core CSS -->
 <script src="/js/bootstrap.js"></script>
 <!-- Custom styles for this template -->
 <link href="/css/dashboard.css" rel="stylesheet">
 <link href="/css/blog.css" rel="stylesheet">
+
+<!-- jquery ui api -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 
 <body>

@@ -7,9 +7,20 @@
 <%@include file="/common/header.jsp"%>
 <%@include file="/common/left.jsp"%>
 
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.text.DateFormat"%>
+<%@ page import="java.text.DecimalFormat"%>
+
 <%
 	UserVo userVoD = (UserVo)request.getAttribute("userVo");
+	DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
+	Date nowDate = new Date();
+	String tempDate = sdFormat.format(userVoD.getBirth());
+
 %>
+
+
 			<div class="row">
 	<div class="col-sm-8 blog-main">
 		<form class="form-horizontal" role="form">
@@ -61,7 +72,7 @@
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">생년월일</label>
 						<div class="col-sm-10">
-							<label class=" control-label"><%= userVoD.getBirth() %></label>
+							<label class=" control-label"><%= tempDate %></label>
 						</div>
 					</div>
 					
@@ -79,15 +90,19 @@
 						</div>
 					</div>
 					
-					<!-- 
+					<br/>
+					<br/>
+					
+				</form>
+				
+				<form method="get" action="/userUpdate">
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">사용자 등록</button>
+							<input type="hidden" name="userId" value="<%=userVoD.getUserId()%>">
+							<button type="submit" class="btn btn-default">수정하기</button>
 						</div>
 					</div>
-					 -->
 				</form>
-		
 	</div>
 </div>
 			

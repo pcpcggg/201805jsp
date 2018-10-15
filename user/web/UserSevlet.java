@@ -43,7 +43,9 @@ public class UserSevlet extends HttpServlet {
 			userDetail(request, response);
 		}
 		
+		
 	}
+	
 
 	private void userDetail(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

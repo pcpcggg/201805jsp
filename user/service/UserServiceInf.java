@@ -27,5 +27,39 @@ public interface UserServiceInf {
 	 */
 
 	Map<String, Object> selectUserPageList(PageVo page);
-
+	
+	/**
+	 * 
+	* Method : insertUser
+	* 작성자 : chan
+	* 변경이력 :
+	* @param userVo
+	* @return
+	* Method 설명 : 회원 가입
+	 */
+	int insertUser(UserVo userVo);
+	
+	/**
+	 * 
+	* Method : deleteUser
+	* 작성자 : chan
+	* 변경이력 :
+	* @param userId
+	* @return
+	* Method 설명 :회원 정보삭제
+	 */
+	int deleteUser(String userId);
+	
+	/**
+	 * 
+	* Method : updateUser
+	* 작성자 : chan
+	* 변경이력 :
+	* @param userVo
+	* @return
+	* Method 설명 : 사용자 업데이트
+	 */
+	
+	int updateUser(UserVo userVo);
+	
 }

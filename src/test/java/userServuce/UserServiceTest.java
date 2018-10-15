@@ -1,6 +1,8 @@
 package userServuce;
 import static org.junit.Assert.*;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +17,9 @@ import org.junit.Test;
 
 import service.UserService;
 import service.UserServiceInf;
+import sun.util.calendar.Gregorian;
 import dao.UserDao;
+import dao.UserDaoInf;
 
 public class UserServiceTest {
 	
@@ -35,6 +39,14 @@ public class UserServiceTest {
 	private static String test ="";
 	
 	private UserServiceInf userS;
+	private UserDaoInf userDao;
+
+	
+	@Before
+	public void setup(){
+		userDao = new UserDao();
+		
+	}
 	
 	@BeforeClass
 	public static void beforeClass() {
@@ -132,6 +144,52 @@ public class UserServiceTest {
 		assertEquals(11, pageCnt);
 	}
 	
+	@Test
+	public void insertUserTest(){
+		/***Given***/
+		// userVo 준비 
+		UserVo userVo = new UserVo();
+		UserDaoInf userDao = new UserDao();
+		
+		userVo.setUserId("test123213");
+		userVo.setName("testname");
+		userVo.setPass("pass1234");
+		userVo.setAddr1("대전 중구 중앙로 76");
+		userVo.setAddr2("영민 빌딩 2층 대덕인재개발원");
+		userVo.setZipcd("34940");
+		
+		GregorianCalendar gc = new GregorianCalendar(2018, 7, 8);
+		userVo.setBirth(new Date(gc.getTimeInMillis()));
+		
+		userVo.setEmail("newUser@gamil.com");
+		userVo.setTel("0422228202");
+				
+				
+		/***When***/
+		// userDao.insertUser()
+		int insertCnt = userDao.insertUser(userVo);
+		
+		/***Then***/
+		// 입력건수 비교
+		assertEquals(1, insertCnt);
+	}
+	
+	@Test
+	public void deleteUserTest(){
+		
+		/***Given***/
+		UserVo userVo = new UserVo();
+		UserDaoInf userDao = new UserDao();
+		
+		userVo.setUserId("test123213");
+
+		/***When***/
+		
+		int deleteCnt = userDao.deleteUser(userId);
+		
+		/***Then***/
+		assertEquals(1, deleteCnt);
+	}
 	
 	//gwt
 	
