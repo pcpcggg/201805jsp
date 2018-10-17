@@ -85,7 +85,7 @@ public class LoginServlet extends HttpServlet{
 		// 2. db에서 조회한 사용자 비밀번호가 파라미터로 전송된 비밀번호와 동일한지 비교
 		
 		if(usv != userS.selectUser(userId) && password.equals(usv.getPass())){
-			req.getSession().setAttribute("userVo", usv);
+			req.getSession().setAttribute("S_USER", usv);
 			RequestDispatcher rd = req.getRequestDispatcher("main.jsp");
 			rd.forward(req, resp);
 			// 3. session에 사용자 정보등록(as-is : 임의의 userVo 등록 / to-be : db에서 조회한 userVo)

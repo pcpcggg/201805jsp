@@ -11,15 +11,6 @@
 <%@ page import="java.text.DateFormat"%>
 <%@ page import="java.text.DecimalFormat"%>
 
-<%
-	UserVo userVoD = (UserVo)request.getAttribute("userVo");
-	DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-	Date nowDate = new Date();
-	String tempDate = sdFormat.format(userVoD.getBirth());
-
-%>
-
-
 <style>
 	.ui-datepicker-trigger {float: left; width: 46px; padding-left: 10px;}
 	#datepicker { float: left;}}
@@ -131,11 +122,15 @@
 						<div class="col-sm-10">
 							<div class="col-sm-10_left">
 								<h2> 현재 프로필 이미지</h2>
-								<% if(userVoD.getProfile() == null){ %>
-									<img src="/profile/no_image.png" />
-								<%}else{ %>
-									<img src="<%=userVoD.getProfile()%>" />
-								<%}%>
+								<c:choose>
+									<c:when test="${userVo.profile == null}">
+										<img src="/profile/no_image.png" width="300px;"/>
+									</c:when>
+									<c:otherwise>
+										<img src="${userVo.profile}" width="300px;"/>
+									</c:otherwise>
+								</c:choose>
+								
 							</div>
 							<div class="col-sm-10_right">
 								<h2> 변경 될 프로필 이미지</h2>
@@ -150,62 +145,62 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<input type="text" class=" form-control" id="userId" name="userId" placeholder="사용자 아이디" readonly="readonly" value="<%= userVoD.getUserId()%>">
+							<input type="text" class=" form-control" id="userId" name="userId" placeholder="사용자 아이디" readonly="readonly" value="${userVo.userId}">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 암호</label>
 						<div class="col-sm-10">
-							<input type="password" class=" form-control" id="pass" name="pass" placeholder="암호를 입력하세요."  value="<%= userVoD.getPass()%>"/>
+							<input type="password" class=" form-control" id="pass" name="pass" placeholder="암호를 입력하세요."  value="${userVo.pass}"/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">이름</label>
 						<div class="col-sm-10">
-							<input type="text" class=" form-control" id="name" name="name" placeholder="이름" value="<%= userVoD.getName()%>">
+							<input type="text" class=" form-control" id="name" name="name" placeholder="이름" value="${userVo.name}">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">주소</label>
 						<div class="col-sm-10" >
-							<input style="width: 80%; float: left;" type="text" class=" form-control" id="addr1" name="addr1" placeholder="주소" readonly="readonly" value="<%= userVoD.getAddr1()%>">
+							<input style="width: 80%; float: left;" type="text" class=" form-control" id="addr1" name="addr1" placeholder="주소" readonly="readonly" value="${userVo.addr1}">
 							<button id="addrSearcBtn" type="button" class="btn btn-default" style=" float: right; margin-left: 20px">주소 검색</button>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-							<input type="text" class=" form-control" id="addr2" name="addr2" placeholder="상세주소" value="<%= userVoD.getAddr2()%>">
+							<input type="text" class=" form-control" id="addr2" name="addr2" placeholder="상세주소" value="${userVo.addr2}">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
-							<input type="text" class=" form-control" id="zipcd" name="zipcd" placeholder="우편번호" readonly="readonly" value="<%= userVoD.getZipcd()%>">
+							<input type="text" class=" form-control" id="zipcd" name="zipcd" placeholder="우편번호" readonly="readonly" value="${userVo.zipcd}">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">생년월일</label>
 						<div class="col-sm-10">
-							<input id="datepicker" type="text" class=" form-control" name="birth" placeholder="생년월일" style="width: 90%" readonly="readonly" value="<%= tempDate%>">
+							<input id="datepicker" type="text" class=" form-control" name="birth" placeholder="생년월일" style="width: 90%" readonly="readonly" value="<fmt:formatDate value="${userVo.birth}" pattern="yyyy-MM-dd"/>">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">이메일</label>
 						<div class="col-sm-10">
-							<input type="text" class=" form-control" id="email" name="email" placeholder="이메일" value="<%= userVoD.getEmail()%>">
+							<input type="text" class=" form-control" id="email" name="email" placeholder="이메일" value="${userVo.email}">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">연락처</label>
 						<div class="col-sm-10">
-							<input type="text" class=" form-control" id="tel" name="tel" placeholder="연락처" value="<%= userVoD.getTel()%>">
+							<input type="text" class=" form-control" id="tel" name="tel" placeholder="연락처" value="${userVo.tel}">
 						</div>
 					</div>
 					

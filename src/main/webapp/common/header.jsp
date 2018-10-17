@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="kr.or.ddit.userModel.UserVo"%>
-
-<% 
-	UserVo userVo = (UserVo)session.getAttribute("userVo"); 
-%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +35,10 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+<script type="text/javascript">
+	var test = "${S_USER.name}";
+</script>
+
 </head>
 
 <body>
@@ -54,12 +56,9 @@
 				</button>
 				<a class="navbar-brand" href="#">JSP/SPRING</a> 
 				<span class="null_color">
-					<% if(userVo != null ){%>
-						<%= userVo.getName()+ "[" +  userVo.getUserId()+ "]"  %>	
-					<%}else{
-					  	out.print("너님에 계정이 없다.");
-					  }
-					%>
+				<c:if test="${S_USER.name != null}">
+					${S_USER.name}님 안녕하세요.
+				</c:if>
 				</span>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">

@@ -49,6 +49,7 @@
 					<th>사용자 이름</th>
 					<th>생일</th>
 				</tr>
+				<%--
 				<%
 					List<UserVo> userList = (List<UserVo>)request.getAttribute("pageList");
 					
@@ -67,6 +68,15 @@
 					</tr>
 				
 				<%} %>
+				 --%>
+				<c:forEach items="${pageList}" var="uv" varStatus="status"  >
+					<tr class="userClick">
+						<td>${uv.rnum}</td>
+						<td>${uv.userId}</td>
+						<td>${uv.name}</td>
+						<td><fmt:formatDate value="${uv.birth}" pattern="yyyy-MM-dd"/></td>
+					</tr>
+				</c:forEach>
 
 			</table>
 		</div>
@@ -81,13 +91,19 @@
         				<span aria-hidden="true">&laquo;</span>
       				</a>
       			</li>
-				<%
+				<%--
 					int pagetCnt = (Integer)request.getAttribute("pageCnt");
-					int pageSize = 5;
+					int pageSize = 11;
 					for(int pageNum =1; pageNum <= userList.size() ; pageNum++){ 
 				%>
 						<li><a href="userPageList?page=<%=pageNum%>&pageSize=<%=pageSize%>"><%=pageNum%></a></li>
-				<%	} %>
+				<%	} --%>
+				<c:set var="pageNum" value="${pageCnt}"/>
+				<c:set var="pageSize" value="11"/>
+				<c:forEach items="${pageList}" var="page"  varStatus="status">
+					<li><a href="userPageList?page=${status.index+1}&pageSize=${pageSize}">${status.index+1}</a></li>
+				</c:forEach>
+				
 				<li>
 					<a href="" aria-label="Next">
         				<span aria-hidden="true">&raquo;</span>

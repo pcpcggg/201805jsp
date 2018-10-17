@@ -12,14 +12,6 @@
 <%@ page import="java.text.DateFormat"%>
 <%@ page import="java.text.DecimalFormat"%>
 
-<%
-	UserVo userVoD = (UserVo)request.getAttribute("userVo");
-	DateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-	Date nowDate = new Date();
-	String tempDate = sdFormat.format(userVoD.getBirth());
-
-%>
-
 
 			<div class="row">
 	<div class="col-sm-8 blog-main">
@@ -27,66 +19,75 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
+							<c:choose>
+								<c:when test="${userVo.profile == null}">
+									<img src="/profile/no_image.png" width="300px;"/>
+								</c:when>
+								<c:otherwise>
+									<img src="${userVo.profile}" width="300px;"/>
+								</c:otherwise>
+							</c:choose>
+						<%-- 
 							<% if(userVoD.getProfile() == null){ %>
 								<img src="/profile/no_image.png" width="300px;"/>
 							<%}else{ %>
 								<img src="<%=userVoD.getProfile()%>" width="300px;"/>
 							<%}%>
+						--%>
 						</div>
 					</div>
 		
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<% System.out.print(userVoD.getUserId() );%>
-							<label for="userNm" class=" control-label"><%=userVoD.getUserId() %></label>
+							<label for="userNm" class=" control-label">${userVo.userId}</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">이름</label>
 						<div class="col-sm-10">
-							<label class=" control-label"><%= userVoD.getName() %></label>
+							<label class=" control-label">${userVo.name}</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">주소</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%= userVoD.getAddr1()%></label>
+							<label class="control-label">${userVo.addr1}</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">상세주소</label>
 						<div class="col-sm-10">
-							<label class=" control-label"><%= userVoD.getAddr2()%></label>
+							<label class=" control-label">${userVo.addr2}</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">우편번호</label>
 						<div class="col-sm-10">
-							<label class=" control-label"><%= userVoD.getZipcd() %></label>
+							<label class=" control-label">${userVo.zipcd}</label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">생년월일</label>
 						<div class="col-sm-10">
-							<label class=" control-label"><%= tempDate %></label>
+							<label class=" control-label"><fmt:formatDate value="${userVo.birth}" pattern="yyyy-MM-dd"/></label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">이메일</label>
 						<div class="col-sm-10">
-							<label class=" control-label"><%= userVoD.getEmail() %></label>
+							<label class=" control-label">${userVo.email}</label>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">연락처</label>
 						<div class="col-sm-10">
-							<label class=" control-label"><%= userVoD.getTel() %></label>
+							<label class=" control-label">${userVo.tel}</label>
 						</div>
 					</div>
 					
@@ -98,7 +99,7 @@
 				<form method="get" action="/userUpdate">
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<input type="hidden" name="userId" value="<%=userVoD.getUserId()%>">
+							<input type="hidden" name="userId" value="${userVo.userId}">
 							<button type="submit" class="btn btn-default">수정하기</button>
 						</div>
 					</div>

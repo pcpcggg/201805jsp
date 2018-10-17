@@ -18,33 +18,22 @@
 					<th>사용자 이름</th>
 					<th>생일</th>
 				</tr>
-				<%
-					List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
-					int i = 1;
-					for(UserVo uv : userList ){
-				%>
-					<tr>
-						<td><%=i++ %></td>
-						<td><%= uv.getUserId() %></td>
-						<td><%= uv.getName() %></td>
-						<td><%= uv.getBirth() %></td>
-	
-					</tr>
 				
-				<%} %>
+				<c:forEach items="${userList}" var="uv" varStatus="status"  >
+					<tr>
+						<td>${status.index +1}</td>
+						<td>${uv.userId}</td>
+						<td>${uv.name}</td>
+						<td><fmt:formatDate value="${uv.birth}" pattern="yyyy-MM-dd"/></td>
+					</tr>
+				</c:forEach>
 
 			</table>
 		</div>
 
 		<a class="btn btn-default pull-right" href="/user/userForm.jsp">사용자 등록</a>
 
-		<div class="text-center">
-			<ul class="pagination">
-				
-						<li><a href="userAllList?page=1">1</a></li>
-				
-			</ul>
-		</div>
+	
 	</div>
 </div>
 			
