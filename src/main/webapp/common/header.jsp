@@ -67,6 +67,9 @@
 					<li><a href="#">Settings</a></li>
 					<li><a href="#">Profile</a></li>
 					<li><a href="#">Help</a></li>
+					<c:if test="${S_USER.name != null}">
+						<li><a href="/logout">Logout</a></li>
+					</c:if>
 				</ul>
 				<form class="navbar-form navbar-right">
 					<input type="text" class="form-control" placeholder="Search...">
