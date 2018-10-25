@@ -57,7 +57,11 @@
 				<a class="navbar-brand" href="#">JSP/SPRING</a> 
 				<span class="null_color">
 				<c:if test="${S_USER.name != null}">
-					${S_USER.name}님 안녕하세요.
+					<fmt:bundle basename="kr.or.ddit.resource.msg.msg">
+						<fmt:message key="visitor">
+							<fmt:param value="${S_USER.name}"></fmt:param>	
+						</fmt:message>
+					</fmt:bundle>
 				</c:if>
 				</span>
 			</div>

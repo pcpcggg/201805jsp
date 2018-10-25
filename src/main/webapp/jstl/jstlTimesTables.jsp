@@ -23,8 +23,13 @@
 	Date date = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:hh:mm");
 %>
+<%= request.getParameter("name") %>
+
+
 <body>
 	hello, world
+	
+	
 	<br />
 	
 
