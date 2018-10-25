@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.ddit.encrypt.sha.KISA_SHA256;
 import kr.or.ddit.userModel.UserVo;
 import service.UserService;
 import service.UserServiceInf;
@@ -83,14 +84,15 @@ public class LoginServlet extends HttpServlet{
 		UserVo usv = userS.selectUser(dbUserId);
 		
 		// 2. db에서 조회한 사용자 비밀번호가 파라미터로 전송된 비밀번호와 동일한지 비교
+		String encryptPass = KISA_SHA256.encrypt(password);
 		
-		if(usv != userS.selectUser(userId) && password.equals(usv.getPass())){
+		if(usv != null && usv.authPass(encryptPass)){
 			req.getSession().setAttribute("S_USER", usv);
 			RequestDispatcher rd = req.getRequestDispatcher("main.jsp");
 			rd.forward(req, resp);
 			// 3. session에 사용자 정보등록(as-is : 임의의 userVo 등록 / to-be : db에서 조회한 userVo)
 		}else{
-			resp.sendRedirect("/");
+			resp.sendRedirect("login/login.jsp");
 		}
 	
 		
