@@ -31,9 +31,6 @@ public class LoginCheckfilter implements Filter {
 		
 		// 세션이 있을때 : 전부 통과
 		
-		// 세션이 없을때 
-		// uri체크 :
-		
 		
 		
 		
