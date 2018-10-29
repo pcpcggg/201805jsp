@@ -64,41 +64,10 @@
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
-  
-  <filter>
-  	<filter-name>loggingFilter</filter-name>
-  	<filter-class>kr.or.ddit.filter.LoggingFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>loggingFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
-  </filter-mapping>
-
-  <filter>
-  	<filter-name>characterSetFilter</filter-name>
-  	<filter-class>kr.or.ddit.filter.CharacterSetFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>characterSetFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>requestCointerFilter</filter-name>
-  	<filter-class>kr.or.ddit.filter.RequestCointerFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>requestCointerFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-  <filter>
-  	<filter-name>loginCheckfilter</filter-name>
-  	<filter-class>kr.or.ddit.filter.LoginCheckfilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>loginCheckfilter</filter-name>
-  	<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
+  <listener>
+    <listener-class>kr.or.ddit.listener.SeeionListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>kr.or.ddit.listener.SessionAttrListener</listener-class>
+  </listener>
 </web-app>

@@ -1,5 +1,6 @@
 package userServuce;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -17,7 +18,6 @@ import org.junit.Test;
 
 import service.UserService;
 import service.UserServiceInf;
-import sun.util.calendar.Gregorian;
 import dao.UserDao;
 import dao.UserDaoInf;
 

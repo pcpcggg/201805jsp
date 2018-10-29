@@ -4,9 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import kr.or.ddit.userModel.PageVo;
-import kr.or.ddit.userModel.UserVo;
 import kr.or.ddit.prodModel.ProdVo;
+import kr.or.ddit.userModel.PageVo;
 import dao.ProdDao;
 import dao.ProdDaoInf;
 

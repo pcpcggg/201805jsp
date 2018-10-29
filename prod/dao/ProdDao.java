@@ -6,10 +6,6 @@ import kr.or.ddit.db.SqlFactoryBuilder;
 import kr.or.ddit.prodModel.ProdVo;
 import kr.or.ddit.userModel.PageVo;
 
-
-
-import kr.or.ddit.userModel.UserVo;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 

@@ -8,8 +8,11 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
-public class LoginCheckfilter implements Filter {
+import com.sun.org.apache.xpath.internal.operations.String;
+
+public class ParameterFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -20,26 +23,12 @@ public class LoginCheckfilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
+		//새로운 파라미터 추가
+		PrameterWrapper pw = new PrameterWrapper((HttpServletRequest)request);
 		
-		// 세션이 있을때 : 전부 통과
+		pw.setParameter("newParameter", new String[]{"brown","sally","cony"});
 		
-		
-		
-		
-//		HttpSession S_USER =((HttpServletRequest)request).getSession();
-//		
-//		System.out.println(request.getParameter("userId"));
-//		
-//		if(request.getParameter("userId")!= null){
-//			request.setAttribute("S_USER", request.getParameter("userId"));
-//			chain.doFilter(request, response);
-//		}
-//		
-//		if(S_USER.getAttribute("S_USER") == null){
-//			request.getRequestDispatcher("/").forward(request, response);
-//		}
-		
-		chain.doFilter(request, response);
+		chain.doFilter(pw, response);
 		
 	}
 

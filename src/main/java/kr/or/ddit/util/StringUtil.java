@@ -1,6 +1,5 @@
 package kr.or.ddit.util;
 
-import java.io.File;
 
 public class StringUtil {
 	public static String getFileNameFrimHeader(String ContentDisposition){

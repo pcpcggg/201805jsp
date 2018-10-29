@@ -13,11 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.prodModel.ProdVo;
 import kr.or.ddit.userModel.PageVo;
-import kr.or.ddit.userModel.UserVo;
 import service.ProdService;
 import service.ProdServiceInf;
-import service.UserService;
-import service.UserServiceInf;
 
 @WebServlet("/prod")
 public class prodSevlet extends HttpServlet {

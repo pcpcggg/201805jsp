@@ -24,7 +24,8 @@
 									<img src="/profile/no_image.png" width="300px;"/>
 								</c:when>
 								<c:otherwise>
-									<img src="${userVo.profile}" width="300px;"/>
+									<%-- <img src="${userVo.profile}" width="300px;"/>--%>
+									<img src="/fileDownloadSevlet?userId=${userVo.userId}"/>
 								</c:otherwise>
 							</c:choose>
 						<%-- 

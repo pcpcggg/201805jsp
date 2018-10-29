@@ -1,7 +1,5 @@
 package kr.or.ddit.locales;
 
-import static org.junit.Assert.*;
-
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
