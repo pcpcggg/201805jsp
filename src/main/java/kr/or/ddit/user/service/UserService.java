@@ -1,13 +1,13 @@
-package service;
+package kr.or.ddit.user.service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kr.or.ddit.user.dao.UserDao;
+import kr.or.ddit.user.dao.UserDaoInf;
 import kr.or.ddit.userModel.UserVo;
 import kr.or.ddit.userModel.PageVo;
-import dao.UserDao;
-import dao.UserDaoInf;
 
 public class UserService implements UserServiceInf {
 	

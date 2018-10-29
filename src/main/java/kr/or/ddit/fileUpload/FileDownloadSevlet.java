@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.ddit.user.service.UserService;
+import kr.or.ddit.user.service.UserServiceInf;
 import kr.or.ddit.userModel.UserVo;
-import service.UserService;
-import service.UserServiceInf;
 
 @WebServlet("/fileDownloadSevlet")
 public class FileDownloadSevlet extends HttpServlet {

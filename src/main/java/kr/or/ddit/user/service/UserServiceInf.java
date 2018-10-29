@@ -1,28 +1,32 @@
-package dao;
+package kr.or.ddit.user.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.ddit.userModel.UserVo;
 import kr.or.ddit.userModel.PageVo;
 
-public interface UserDaoInf {
-	public List<UserVo> getUserAll();
-	
-	public UserVo selectUser(String userId);
-	
-	public UserVo selectUser(UserVo userVo);
-	
-	public List<UserVo> selectUserPageList(PageVo page);
+public interface UserServiceInf {
+
+	List<UserVo> getUserAll();
+
+	UserVo selectUser();
+
+	UserVo selectUser(UserVo userVo);
+
+	UserVo selectUser(String userId);
 	
 	/**
-	* Method : getUserCnt
+	 * 
+	* Method : selectUserPageList
 	* 작성자 : chan
 	* 변경이력 :
+	* @param page
 	* @return
-	* Method 설명 : 사용자 전체 건수 조회
-	*/
-	int getUserCnt();
-	
+	* Method 설명 : 사용자 페이지 조회
+	 */
+
+	Map<String, Object> selectUserPageList(PageVo page);
 	
 	/**
 	 * 
@@ -31,9 +35,8 @@ public interface UserDaoInf {
 	* 변경이력 :
 	* @param userVo
 	* @return
-	* Method 설명 : 사용자 등록
+	* Method 설명 : 회원 가입
 	 */
-	
 	int insertUser(UserVo userVo);
 	
 	/**
@@ -43,9 +46,8 @@ public interface UserDaoInf {
 	* 변경이력 :
 	* @param userId
 	* @return
-	* Method 설명 : 사용자 삭제
+	* Method 설명 :회원 정보삭제
 	 */
-	
 	int deleteUser(String userId);
 	
 	/**
@@ -55,8 +57,9 @@ public interface UserDaoInf {
 	* 변경이력 :
 	* @param userVo
 	* @return
-	* Method 설명 : 업데이트
+	* Method 설명 : 사용자 업데이트
 	 */
+	
 	int updateUser(UserVo userVo);
 	
 }

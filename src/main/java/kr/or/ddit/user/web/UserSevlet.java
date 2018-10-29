@@ -1,4 +1,4 @@
-package web;
+package kr.or.ddit.user.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.ddit.user.service.UserService;
+import kr.or.ddit.user.service.UserServiceInf;
 import kr.or.ddit.userModel.UserVo;
 import kr.or.ddit.userModel.PageVo;
-import service.UserService;
-import service.UserServiceInf;
 
 
 

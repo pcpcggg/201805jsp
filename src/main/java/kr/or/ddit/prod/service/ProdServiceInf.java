@@ -1,4 +1,4 @@
-package service;
+package kr.or.ddit.prod.service;
 
 import java.util.Map;
 

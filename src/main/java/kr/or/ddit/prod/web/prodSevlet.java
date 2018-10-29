@@ -1,4 +1,4 @@
-package web;
+package kr.or.ddit.prod.web;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.ddit.prod.service.ProdService;
+import kr.or.ddit.prod.service.ProdServiceInf;
 import kr.or.ddit.prodModel.ProdVo;
 import kr.or.ddit.userModel.PageVo;
-import service.ProdService;
-import service.ProdServiceInf;
 
 @WebServlet("/prod")
 public class prodSevlet extends HttpServlet {

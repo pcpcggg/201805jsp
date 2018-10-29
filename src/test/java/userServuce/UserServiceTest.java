@@ -7,6 +7,10 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 
+import kr.or.ddit.user.dao.UserDao;
+import kr.or.ddit.user.dao.UserDaoInf;
+import kr.or.ddit.user.service.UserService;
+import kr.or.ddit.user.service.UserServiceInf;
 import kr.or.ddit.userModel.PageVo;
 import kr.or.ddit.userModel.UserVo;
 
@@ -15,11 +19,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import service.UserService;
-import service.UserServiceInf;
-import dao.UserDao;
-import dao.UserDaoInf;
 
 public class UserServiceTest {
 	

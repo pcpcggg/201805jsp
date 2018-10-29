@@ -1,4 +1,4 @@
-package dao;
+package kr.or.ddit.user.dao;
 
 import java.util.List;
 

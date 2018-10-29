@@ -1,13 +1,13 @@
-package service;
+package kr.or.ddit.prod.service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kr.or.ddit.prod.dao.ProdDao;
+import kr.or.ddit.prod.dao.ProdDaoInf;
 import kr.or.ddit.prodModel.ProdVo;
 import kr.or.ddit.userModel.PageVo;
-import dao.ProdDao;
-import dao.ProdDaoInf;
 
 public class ProdService implements ProdServiceInf{
 	
